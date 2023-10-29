@@ -1,0 +1,16 @@
+def split_integer(num, parts):
+    empty = []
+    result = num // parts
+    for i in range(parts):
+        empty.append(result)  
+    if sum(empty) < num:
+        adder = num - sum(empty)
+        for i in range( -1, -(adder + 1), -1):
+            empty[i] += 1
+        return empty
+    return empty
+number = int(input("Enter a number to split: "))
+parts = int(input("Number of parts: "))
+
+answer = split_integer(number, parts)
+print(f"The splitted numbers are: {answer}")
